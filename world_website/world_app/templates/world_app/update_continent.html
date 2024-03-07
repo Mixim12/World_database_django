@@ -1,0 +1,15 @@
+{% extends 'world_app/base.html' %}
+{% block content %}
+
+
+<h1>Update Continent</h1>
+<br/>
+<form action="" method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Update" class="btn btn-success">
+    <a href="{% url 'continents' %}" class="btn btn-secondary">Cancel</a>
+</form>
+
+
+{% endblock content %}

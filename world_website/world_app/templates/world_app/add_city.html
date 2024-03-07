@@ -1,0 +1,40 @@
+{% extends 'world_app/base.html' %}
+{% block content %}
+
+<center>
+    <br></br>
+    {% if submitted %}
+
+        <H1>City added successfully!</H1>
+        <br></br>
+        <a href="{% url 'cities' %}" class="btn btn-primary" >Back to Cities</a>
+        <a href="{% url 'add_city' %}" class="btn btn-primary" >Add another city</a>
+    {% else %}
+    <h1>Add City</h1>
+    <form action="" method="POST">
+        <div align="left">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="{{ form.name.id_for_label }}"></label>
+            <input type="text" id="{{ form.name.id_for_label }}" name="{{ form.name.html_name }}"  placeholder="City name" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="{{ form.area.id_for_label }}"></label>
+            <input type="number" id="{{ form.area.id_for_label }}" name="{{ form.area.html_name }}" value="{{ form.area.value }}"placeholder="City Area" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="{{ form.population.id_for_label }}"></label>
+            <input type="number" id="{{ form.population.id_for_label }}" name="{{ form.population.html_name }}" value="{{ form.population.value }}"placeholder="City Population" class="form-control">
+        <br/>
+        <div class="form-group">
+            <input class="form-check-input" id="{{ form.is_capital.id_for_label }}" type="checkbox" name="{{ form.is_capital.name }}" {% if form.is_capital.value %}checked{% endif %}>
+            <label class="form-check-label" for="{{ form.is_capital.id_for_label }}">Is Capital?</label>
+        </div>
+        <br/>
+        </div>
+        <input type="submit" value="Add" class="btn btn-success">
+    </form>
+    {% endif %}
+</center>
+
+{% endblock content %}

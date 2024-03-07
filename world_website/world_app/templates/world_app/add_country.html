@@ -1,0 +1,24 @@
+{% extends 'world_app/base.html' %}
+{% block content %}
+
+<center>
+    <br></br>
+    {% if submitted %}
+
+        <H1>Country added successfully!</H1>
+        <br></br>
+        <a href="{% url 'countries' %}" class="btn btn-primary" >Back to Countries</a>
+        <a href="{% url 'add_country' %}" class="btn btn-primary" >Add another country</a>
+    {% else %}
+    <h1>Add Country</h1>
+    <form action="" method="POST">
+        <div align="left">
+        {% csrf_token %}
+        {{ form.as_p }}
+        </div>
+        <input type="submit" value="Add" class="btn btn-success">
+    </form>
+    {% endif %}
+</center>
+
+{% endblock content %}

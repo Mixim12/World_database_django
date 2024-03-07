@@ -1,0 +1,32 @@
+{% extends 'world_app/base.html' %}
+{% block content %}
+
+
+<h1>Update City</h1>
+<br/>
+<form action="" method="POST">
+    {% csrf_token %}
+    <div class="form-group">
+        <label for="{{ form.name.id_for_label }}"></label>
+        <input type="text" id="{{ form.name.id_for_label }}" name="{{ form.name.html_name }}" value="{{ form.name.value }}" placeholder="City name" class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="{{ form.area.id_for_label }}"></label>
+        <input type="number" id="{{ form.area.id_for_label }}" name="{{ form.area.html_name }}" value="{{ form.area.value }}"placeholder="Area" class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="{{ form.population.id_for_label }}"></label>
+        <input type="number" id="{{ form.population.id_for_label }}" name="{{ form.population.html_name }}" value="{{ form.population.value }}"placeholder="Population" class="form-control">
+    <br/>
+        <div class="form-group">
+            <input class="form-check-input" id="{{ form.is_capital.id_for_label }}" type="checkbox" name="{{ form.is_capital.name }}" {% if form.is_capital.value %}checked{% endif %}>
+            <label class="form-check-label" for="{{ form.is_capital.id_for_label }}">Is Capital?</label>
+        </div>
+    </div>
+    <br/>
+    <input type="submit" value="Update" class="btn btn-success">
+    <a href="{% url 'cities' %}" class="btn btn-secondary">Cancel</a>
+</form>
+
+
+{% endblock content %}

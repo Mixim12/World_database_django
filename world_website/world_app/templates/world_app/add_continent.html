@@ -1,0 +1,21 @@
+{% extends 'world_app/base.html' %}
+{% block content %}
+
+    <br></br>
+    {% if submitted %}
+
+        <H1>Continent added successfully!</H1>
+        <br></br>
+        <a href="{% url 'continents' %}" class="btn btn-primary" >Back to Continents</a>
+        <a href="{% url 'add_continent' %}" class="btn btn-primary" >Add another continent</a>
+    {% else %}
+    <h1>Add Continent</h1>
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Add" class="btn btn-success">
+    </form>
+    {% endif %}
+
+
+{% endblock content %}
