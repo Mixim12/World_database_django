@@ -8,6 +8,7 @@
 
    ```bash
     pip install -r requirements.txt
+    cd world_website
     python manage.py loaddata data.json
     ```
 
