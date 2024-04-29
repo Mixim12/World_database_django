@@ -1,5 +1,6 @@
 # World Website
-
+## About 
+This project aims to streamline CRUD (Create, Read, Update, Delete) operations on a PostgreSQL database through web interfaces built using two popular Python frameworks: Django and Flask. With a user-friendly interface, it enables efficient management of data across three interconnected tables: continents, countries, and cities.
 ## Installation and Setup
 
 ***All of the following commands need to be done inside the 'world_website' folder or targeted to 'manage.py' file inside the world_website folder***
